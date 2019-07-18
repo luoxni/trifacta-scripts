@@ -1,10 +1,20 @@
 # trifacta-scripts
 Scripts for use with Trifacta
 
-Usage
+Description
+
+Bash script to invoke a Trifacta job via v4 APIs. Script will launch job and poll for status until it completes or fails.
+
 
 Command
+
 ./run_api.sh [-t] [-s] -d OR -j <jobType> -w <wrangleId> -f <outputFormat> -o <outputFile> -p <{parameters}>"
+  
+Exit Codes
+
+1 if errors
+
+
 
 Flags:
 -t | --token =  Uses API Token set inside script
@@ -23,7 +33,10 @@ Flags:
 
 -p | --parameters <parameters> = Specifies parameter overrides for job. Parameter overrides must be in JSON format
 
+
+
 Examples:
+
 ./run_api.sh -s -w 123 -o s3://mybucket/lni/example.json -f json -p '{"key":"Year","value":"2016"}' 
 
 Runs wrangleId 123 with specified parameter overrides, outputting as a JSON format. Also uses SSL.
